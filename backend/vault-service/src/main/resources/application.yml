@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: vault-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB:personal_manager}
+    username: ${POSTGRES_USER:pm_user}
+    password: ${POSTGRES_PASSWORD:pm_pwd1234}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
