@@ -1,3 +1,4 @@
+
 server:
   port: 8080
 
@@ -7,21 +8,24 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: platform-service
-          uri: http://localhost:8081
-          predicates:
-            - Path=/api/platform/**
-          filters:
-            - StripPrefix=2
+      server:
+        webmvc:
+          routes:
+            - id: platform-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/platform/**
+              filters:
+                - StripPrefix=2
 
-        - id: vault-service
-          uri: http://localhost:8082
-          predicates:
-            - Path=/api/vault/**
-          filters:
-            - StripPrefix=2
+            - id: vault-service
+              uri: http://localhost:8082
+              predicates:
+                - Path=/api/vault/**
+              filters:
+                - StripPrefix=2
+
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
-    org.springframework.web.reactive.handler.SimpleUrlHandlerMapping: TRACE
+    org.springframework.web.servlet.function: DEBUG

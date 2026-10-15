@@ -1,0 +1,7 @@
+docker exec -it personal-manager-postgres psql -U pm_user -d personal_manager
+CREATE DATABASE pm_platform;
+CREATE DATABASE pm_vault;
+\l
+
+docker exec -it personal-manager-postgres psql -U pm_user -d pm_platform -c "\dt"
+docker exec -it personal-manager-postgres psql -U pm_user -d pm_vault -c "\dt"

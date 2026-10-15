@@ -6,7 +6,7 @@ spring:
     name: platform-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB:personal_manager}
+    url: jdbc:postgresql://localhost:5432/pm_platform
     username: ${POSTGRES_USER:pm_user}
     password: ${POSTGRES_PASSWORD:pm_pwd1234}
     driver-class-name: org.postgresql.Driver
@@ -15,3 +15,7 @@ spring:
     hibernate:
       ddl-auto: none
     open-in-view: false
+
+  flyway:
+    enabled: true
+    validate-migration-naming: true
