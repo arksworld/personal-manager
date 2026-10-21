@@ -111,8 +111,9 @@ public class UserEntitlementService {
     }
 
     public UserEntitlement getById(UUID id) {
-        return entitlementRepository.findById(id)
+        UserEntitlement userEntitlement = entitlementRepository.findById(id)
                 .orElseThrow(() -> new EntitlementNotFoundException(id));
+        return userEntitlement;
     }
 
     private String normalizeSubject(String subject) {
