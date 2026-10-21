@@ -1,4 +1,4 @@
-package com.personalmanager.platform_service.controller;
+package com.personalmanager.platform_service.api.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

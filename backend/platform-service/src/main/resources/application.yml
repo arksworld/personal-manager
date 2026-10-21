@@ -13,9 +13,14 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     open-in-view: false
 
   flyway:
     enabled: true
     validate-migration-naming: true
+
+  security:
+    user:
+      name: suser
+      password: pwd123
