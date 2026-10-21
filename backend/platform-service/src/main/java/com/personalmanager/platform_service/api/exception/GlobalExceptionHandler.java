@@ -1,6 +1,8 @@
 package com.personalmanager.platform_service.api.exception;
 
 import com.personalmanager.platform_service.exception.DuplicateFeatureModuleException;
+import com.personalmanager.platform_service.exception.EntitlementAlreadyExistsException;
+import com.personalmanager.platform_service.exception.EntitlementNotFoundException;
 import com.personalmanager.platform_service.exception.FeatureModuleNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -90,5 +92,21 @@ public class GlobalExceptionHandler {
         problem.setType(URI.create(type));
 
         return problem;
+    }
+
+    @ExceptionHandler(EntitlementNotFoundException.class)
+    public ProblemDetail handleEntitlementNotFound(
+            EntitlementNotFoundException exception) {
+
+        return ProblemDetail.forStatusAndDetail(
+                HttpStatus.NOT_FOUND, exception.getMessage());
+    }
+
+    @ExceptionHandler(EntitlementAlreadyExistsException.class)
+    public ProblemDetail handleEntitlementAlreadyExists(
+            EntitlementAlreadyExistsException exception) {
+
+        return ProblemDetail.forStatusAndDetail(
+                HttpStatus.CONFLICT, exception.getMessage());
     }
 }

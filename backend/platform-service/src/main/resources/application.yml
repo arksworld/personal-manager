@@ -24,3 +24,7 @@ spring:
     user:
       name: suser
       password: pwd123
+
+logging:
+    level:
+      org.springframework.web: DEBUG
