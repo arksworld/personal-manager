@@ -1,7 +1,6 @@
-package com.personalmanager.platform_service;
+package com.personalmanager.platform_service.api;
 
 import com.personalmanager.platform_service.api.controller.FeatureModuleController;
-import com.personalmanager.platform_service.api.dto.CreateFeatureModuleRequest;
 import com.personalmanager.platform_service.api.exception.GlobalExceptionHandler;
 import com.personalmanager.platform_service.config.SecurityConfig;
 import com.personalmanager.platform_service.domain.model.FeatureModule;
